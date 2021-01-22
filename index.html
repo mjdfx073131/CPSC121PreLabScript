@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link href="style.css" rel="stylesheet" />
+	<script src="main_script.js"></script>
+	<script src="papaparse.min.js"></script>
+	<title>Kerry's Pre-Lab Grades</title>
+</head>
+
+<body onload="populateDropdown()">
+	<h1>Kerry's Pre-Lab Grades</h1>
+	<h1>Shout out to Jack</h1>
+	
+	<div id="dataInput">
+		Lab Section:
+		L2<select id="sectionSelector"></select>
+		
+		<br><br>
+			
+		Raw CSIDs txt file <b>WITH PREFERRED NAMES</b>:<br>
+		(provided by Jonathan on my.cs)<br>
+		<input type="file" id="CSIDs" name="CSIDs">
+			
+		<br><br>
+
+		Raw Gradescope pre-lab grade data:<br>
+		(access by going to the assignment > Review Grades > Download Grades > Download CSV)<br>
+		<input type="file" id="grades" name="grades">
+			
+		<br><br>
+
+		<button id="submitButton" onclick="submitForm()">Submit</button>
+	</div>
+
+	<br><br>
+	
+	<table id="result">
+		<tr>
+			<th>Legal Name</th>
+			<th>Grade</th>
+			<th>CSID</th>
+		</tr>
+	</table>
+</body>
+</html>
