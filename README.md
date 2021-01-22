@@ -8,3 +8,7 @@
 ```
 # Shout out to Jack
 ## csid without preferred name
+
+Clone to local and open `index.html` through browser 
+
+Star the project will be appreciated!! :joy:
