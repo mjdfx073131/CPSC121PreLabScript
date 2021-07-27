@@ -76,7 +76,7 @@ function outputResult() {
 	
 	for (var i = 0; i < csidArray.length; i++) {
 		var row = table.insertRow(-1);
-		const name = (csidArray[i]["Legal Name"] + " " + csidArray[i]["Last Name"]).toLowerCase()
+		let name = (csidArray[i]["Legal Name"] + " " + csidArray[i]["Last Name"]).toLowerCase()
 		console.log(name)
 		row.insertCell(-1).innerHTML = csidArray[i]["Legal Name"];
 		if (gradesMap.get(csidArray[i]["CS ID"]) == undefined) {
