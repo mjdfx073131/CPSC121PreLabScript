@@ -59,10 +59,10 @@ function mapGradeData(gradesArray) {
 	gradesMap = new Map();
 	for (var i = 0; i < gradesArray.length; i++) {
 		if (gradesArray[i]["Status"] == "Graded") {
-			gradesMap.set(gradesArray[i]["Name"], gradesArray[i]["Total Score"]);
+			gradesMap.set(gradesArray[i]["Name"].toLowerCase(), gradesArray[i]["Total Score"]);
 		}
 	}
-
+	console.log(gradesMap)
 	outputResult();
 }
 
@@ -76,9 +76,17 @@ function outputResult() {
 	
 	for (var i = 0; i < csidArray.length; i++) {
 		var row = table.insertRow(-1);
+		const name = (csidArray[i]["Legal Name"] + " " + csidArray[i]["Last Name"]).toLowerCase()
+		console.log(name)
 		row.insertCell(-1).innerHTML = csidArray[i]["Legal Name"];
 		if (gradesMap.get(csidArray[i]["CS ID"]) == undefined) {
-			row.insertCell(-1).innerHTML = "no submission";
+			if (gradesMap.get(name) == undefined) {
+				row.insertCell(-1).innerHTML = "no submission";
+			}
+			else {
+				row.insertCell(-1).innerHTML = gradesMap.get(name);
+			}
+			
 		} else {
 			row.insertCell(-1).innerHTML = gradesMap.get(csidArray[i]["CS ID"]);
 		}
